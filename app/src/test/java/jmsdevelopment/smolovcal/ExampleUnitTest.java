@@ -1,4 +1,4 @@
-package androidcourse.smolovcal;
+package jmsdevelopment.smolovcal;
 
 import org.junit.Test;
 

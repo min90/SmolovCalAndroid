@@ -1,4 +1,4 @@
-package androidcourse.smolovcal;
+package jmsdevelopment.smolovcal;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
