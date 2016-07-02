@@ -4,5 +4,17 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <!-- Actions -->
     <string name="action_settings">Settings</string>
+    <string name="action_log_out">Sign out</string>
+
+    <!-- Login screen -->
+    <string name="full_app_name">Smolov Calculator</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="button_text_log_on">Sign in</string>
+    <string name="remember_me_checkbox">Remember me</string>
+    <string name="register">Register a new account</string>
+
+    <!-- Main screen -->
 </resources>

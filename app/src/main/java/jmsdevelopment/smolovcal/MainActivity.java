@@ -2,6 +2,9 @@ package jmsdevelopment.smolovcal;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -16,34 +19,32 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import jmsdevelopment.smolovcal.fragments.LoginFragment;
+import jmsdevelopment.smolovcal.fragments.MainFragment;
+
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+        implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    private FrameLayout fragmentContainer;
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
-    private Button btnLogOn;
-    private EditText edtEmail;
-    private EditText edtPassword;
+    public static Toolbar toolbar;
+    private static DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        fragmentContainer = (FrameLayout) findViewById(R.id.fragment_container);
-        mAuth = FirebaseAuth.getInstance();
-        edtEmail = (EditText) findViewById(R.id.edtEmail);
-        edtPassword = (EditText) findViewById(R.id.edtPassword);
+        SharedPreferencesManager.init(this);
 
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -52,36 +53,35 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if(user != null) {
-                    Log.d(TAG, "User is logged in");
-                } else {
-                    Log.d(TAG, "User is logget out");
-                }
-            }
-        };
+        proceedToLoginFragment();
 
     }
 
-    private void passLoginCredentials() {
-
+    private void proceedToLoginFragment(){
+        if(SharedPreferencesManager.get().getRememberMe()) {
+            FragmentController.get().transactFragments(this, new MainFragment(), "main_fragment");
+        } else {
+            FragmentController.get().transactFragments(this, new LoginFragment(), null);
+        }
     }
+
+    public static void lockDrawer() {
+        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+    }
+
+    public static void unlockDrawer(){
+        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+    }
+
 
     @Override
     public void onStart() {
         super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
-        }
     }
 
     @Override
@@ -112,8 +112,17 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
+        if (id == R.id.action_log_out) {
+          signOut();
+        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void signOut(){
+        SharedPreferencesManager.get().setRememberMe(false);
+        FirebaseAuth.getInstance().signOut();
+        FragmentController.get().transactFragments(this, new LoginFragment(), "login_fragment");
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -130,21 +139,12 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_sign_out) {
+            signOut();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    public void onClick(View v) {
-        if(v.getId() == btnLogOn.getId()){
-            passLoginCredentials();
-        }
     }
 }

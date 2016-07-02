@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/constraintLayout">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:id="@+id/linearLayout2"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
+        tools:layout_constraintRight_creator="1">
+
+        <TextView
+            android:text="Progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:textColor="@color/textColor"
+            app:layout_constraintLeft_toLeftOf="@+id/linearLayout2"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout2"
+            tools:layout_constraintTop_creator="1" />
+
+        <TextView
+            android:text="Name of cycle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:textColor="@color/textColor"
+            app:layout_constraintLeft_toLeftOf="@+id/textView3"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            tools:layout_constraintTop_creator="1" />
+
+    </LinearLayout>
+
+    <Button
+        android:text="Button"
+        android:layout_width="91dp"
+        android:layout_height="51dp"
+        android:id="@+id/button2"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
+        android:layout_marginLeft="131dp"
+        android:layout_marginStart="131dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+        android:layout_marginBottom="199dp"
+        tools:layout_constraintBottom_creator="1" />
+
+</android.support.constraint.ConstraintLayout>
