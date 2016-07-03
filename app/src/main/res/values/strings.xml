@@ -15,6 +15,11 @@
     <string name="button_text_log_on">Sign in</string>
     <string name="remember_me_checkbox">Remember me</string>
     <string name="register">Register a new account</string>
+    <string name="register_welcome">Register</string>
 
     <!-- Main screen -->
+
+    <!-- Register screen -->
+    <string name="button_register">Register my account</string>
+    <string name="name_hint">Name</string>
 </resources>
