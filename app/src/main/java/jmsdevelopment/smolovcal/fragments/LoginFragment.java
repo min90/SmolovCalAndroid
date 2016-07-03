@@ -51,7 +51,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_login_2, container, false);
+        View view = inflater.inflate(R.layout.fragment_login, container, false);
 
         mAuth = FirebaseAuth.getInstance();
         tipSignInEmail = (TextInputLayout) view.findViewById(R.id.tipSignInEmail);
@@ -92,7 +92,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 tipSignInPassword.setError("Not a valid password!");
             }
             if (Util.get().validateEmail(email) && Util.get().validatePassword(password)) {
-                tipSignInEmail.setErrorEnabled(true);
+                tipSignInEmail.setErrorEnabled(false);
                 tipSignInPassword.setErrorEnabled(false);
                 hideKeyboard();
 
@@ -106,6 +106,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                             Log.d(TAG, "Log in completed");
                         } else if (!task.isSuccessful()) {
                             Log.d(TAG, "Login failed");
+                            MainActivity.lockDrawer();
                             tipSignInEmail.setError("Please make sure you enter an correct email");
                             tipSignInPassword.setError("Please make sure you enter a correct password.");
                         }

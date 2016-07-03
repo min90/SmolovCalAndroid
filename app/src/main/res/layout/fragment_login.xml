@@ -1,107 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="jmsdevelopment.smolovcal.MainActivity"
-    android:background="@color/textColor">
-
-    <EditText
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/edtEmail"
-        android:hint="@string/email"
-        app:layout_constraintLeft_toLeftOf="@+id/content_main"
-        android:layout_marginLeft="42dp"
-        android:layout_marginStart="42dp"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        android:layout_marginTop="22dp"
-        tools:layout_constraintTop_creator="1"
-        app:layout_constraintRight_toRightOf="@+id/content_main"
-        android:layout_marginRight="42dp"
-        android:layout_marginEnd="42dp"
-        tools:layout_constraintRight_creator="1" />
-
-    <EditText
-        android:layout_width="0dp"
-        android:layout_height="49dp"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/edtPassword"
-        android:hint="@string/password"
-        app:layout_constraintLeft_toLeftOf="@+id/edtEmail"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmail"
-        android:layout_marginTop="16dp"
-        tools:layout_constraintTop_creator="1"
-        app:layout_constraintRight_toRightOf="@+id/edtEmail" />
-
-    <CheckBox
-        android:text="@string/remember_me_checkbox"
-        android:layout_width="0dp"
-        android:layout_height="41dp"
-        android:id="@+id/chkRememberMe"
-        android:gravity="center_vertical|start"
-        app:layout_constraintLeft_toLeftOf="@+id/edtPassword"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintTop_toBottomOf="@+id/edtPassword"
-        android:layout_marginTop="8dp"
-        tools:layout_constraintTop_creator="1"
-        app:layout_constraintRight_toRightOf="@+id/edtPassword"
-        tools:layout_constraintRight_creator="1" />
-
-    <Button
-        android:text="@string/button_text_log_on"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnLogOn"
-        style="@style/Widget.AppCompat.Button.Colored"
-        app:layout_constraintLeft_toLeftOf="@+id/content_main"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/chkRememberMe"
-        android:layout_marginTop="40dp"
-        tools:layout_constraintTop_creator="1"
-        app:layout_constraintRight_toRightOf="@+id/content_main"
-        android:layout_marginRight="16dp"
-        android:layout_marginEnd="16dp" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
         android:text="@string/full_app_name"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2"
+        android:id="@+id/textView5"
         android:gravity="center_vertical|center_horizontal"
         android:textSize="24sp"
         android:fontFamily="sans-serif-condensed"
-        app:layout_constraintLeft_toLeftOf="@+id/content_main"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintTop_toTopOf="@+id/content_main"
-        android:layout_marginTop="63dp"
-        tools:layout_constraintTop_creator="1"
-        app:layout_constraintRight_toRightOf="@+id/content_main"
-        tools:layout_constraintRight_creator="1" />
+        android:layout_marginTop="72dp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tipSignInEmail"
+        android:layout_marginTop="36dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/edtEmail"
+            android:layout_weight="1"
+            android:hint="@string/email_hint" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:id="@+id/tipSignInPassword">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/edtPassword"
+            android:layout_weight="1"
+            android:hint="@string/password" />
+    </android.support.design.widget.TextInputLayout>
+
+    <CheckBox
+        android:text="@string/remember_me_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/chkRememberMe"
+        android:gravity="center_vertical|center_horizontal|start"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        style="@android:style/Widget.Holo.CompoundButton.CheckBox" />
+
+    <Button
+        android:text="@string/button_text_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnLogOn"
+        android:layout_marginTop="36dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        style="@style/Widget.AppCompat.Button.Colored" />
 
     <Button
         android:text="@string/register"
-        android:layout_width="301dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnRegister"
-        style="@style/Widget.AppCompat.Button.Colored"
-        app:layout_constraintLeft_toLeftOf="@+id/content_main"
+        android:id="@+id/btnNewRegister"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_marginTop="36dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogOn"
-        android:layout_marginTop="8dp"
-        app:layout_constraintRight_toRightOf="@+id/content_main"
-        android:layout_marginRight="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/content_main"
-        android:layout_marginBottom="32dp" />
-
-</android.support.constraint.ConstraintLayout>
+        android:layout_marginRight="16dp" />
+</LinearLayout>
