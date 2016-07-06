@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">SmolovCal</string>
 
+    <!-- Drawer entries -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_my_workout">My workouts</string>
+    <string name="navigation_drawer_my_current_workout">Current workout</string>
+    <string name="navigation_drawer_my_account">My account</string>
 
     <!-- Actions -->
     <string name="action_settings">Settings</string>
@@ -18,6 +22,14 @@
     <string name="register_welcome">Register</string>
 
     <!-- Main screen -->
+    <string name="main_exercise">Exercise</string>
+    <string name="main_max">Max</string>
+    <string name="main_smolov">Smolov</string>
+    <string name="main_progress">Progress</string>
+
+    <!-- Dialog New Workout -->
+    <string name="dialog_junior">Junior?</string>
+    <string name="dialog_senior">Senior?</string>
 
     <!-- Register screen -->
     <string name="button_register">Register my account</string>
