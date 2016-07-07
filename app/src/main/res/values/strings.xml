@@ -30,6 +30,7 @@
     <!-- Dialog New Workout -->
     <string name="dialog_junior">Junior?</string>
     <string name="dialog_senior">Senior?</string>
+    <string name="dialog_info_text">Create a new workout</string>
 
     <!-- Register screen -->
     <string name="button_register">Register my account</string>

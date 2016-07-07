@@ -49,10 +49,10 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:id="@+id/txt_progress"
-                    tools:text="@string/main_progress"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:text="@string/main_progress" />
             </LinearLayout>
 
             <LinearLayout
