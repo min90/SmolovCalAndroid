@@ -17,6 +17,5 @@
         android:layout_margin="@dimen/fab_margin"
         android:layout_gravity="bottom|end"
         app:srcCompat="@drawable/ic_add_black_24dp"
-        android:id="@+id/fabNewWorkout"
-        app:backgroundTint="?attr/colorControlActivated" />
+        android:id="@+id/fabNewWorkout" />
 </android.support.design.widget.CoordinatorLayout>
