@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_my_workouts) {
-            // Handle the camera action
+           FragmentController.get().transaftFragmentWithAnimations(this, new MainFragment(), "main_fragment");
         } else if (id == R.id.nav_current_workout) {
 
         } else if (id == R.id.nav_my_account) {
