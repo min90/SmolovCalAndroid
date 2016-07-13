@@ -12,7 +12,7 @@
         android:text="@string/dialog_info_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2"
+        android:id="@+id/txtCycle"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -27,13 +27,14 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="6dp"
         android:layout_marginTop="6dp"
-        android:textColorHint="@color/textColor">
+        android:textColorHint="@color/textColor"
+        android:id="@+id/txtIPExercise">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:id="@+id/editText2"
+            android:id="@+id/edtExercise"
             android:layout_weight="1"
             android:hint="@string/new_exercise_text"
             android:inputType="text"
@@ -51,14 +52,15 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="6dp"
         android:layout_marginBottom="6dp"
-        android:textColorHint="@color/textColor">
+        android:textColorHint="@color/textColor"
+        android:id="@+id/txtIPOneRepMax">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText4"
+            android:id="@+id/edtOneRepMax"
             android:layout_weight="1"
             android:hint="@string/new_one_rep_max"
             android:textColor="@color/textColor"
@@ -76,14 +78,15 @@
         android:layout_marginRight="16dp"
         android:hint="@string/new_increment"
         android:textColorHint="@color/textColor"
-        android:backgroundTint="@color/textColor">
+        android:backgroundTint="@color/textColor"
+        android:id="@+id/txtIPIncrement">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText5"
+            android:id="@+id/edtIncrement"
             android:layout_weight="1" />
     </android.support.design.widget.TextInputLayout>
 

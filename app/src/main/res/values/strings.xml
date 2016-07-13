@@ -30,11 +30,14 @@
     <!-- Dialog New Workout -->
     <string name="dialog_junior">Smolov Jr</string>
     <string name="dialog_senior">Full smolov</string>
+    <string name="new_workout">Choose a cycle!</string>
     <string name="dialog_info_text">Create a Smolov Jr cycle</string>
+    <string name="dialog_info_full_text">Create a full Smolov cycle</string>
     <string name="new_exercise_text">Exercise?</string>
     <string name="new_one_rep_max">One Rep Max?</string>
     <string name="new_increment">Increment?</string>
-
+    <string name="new_junior">Junior?</string>
+    <string name="new_full">Full Smolov?</string>
     <!-- Register screen -->
     <string name="button_register">Register my account</string>
     <string name="name_hint">Name</string>

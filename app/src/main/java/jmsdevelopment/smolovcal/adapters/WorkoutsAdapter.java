@@ -33,7 +33,7 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.Workou
         Workout workout = workoutList.get(position);
         holder.txtExercise.setText(workout.getExercise());
         holder.txtMax.setText(String.valueOf(workout.getMax()));
-        holder.txtJrSr.setText(String.valueOf(workout.isSenior()));
+        holder.txtJrSr.setText(String.valueOf(workout.isFull()));
         holder.txtProgress.setText(String.valueOf(10));
 
     }

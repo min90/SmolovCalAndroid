@@ -66,7 +66,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         if (v.getId() == floatingActionButton.getId()) {
             FragmentController.get().transactFragments(getActivity(),
                     NewWorkoutFragment.newInstance(floatingActionButton.getX(),
-                            floatingActionButton.getY()), "fragment_workout_junior");
+                            floatingActionButton.getY()), "fragment_workout_new");
         }
     }
 }

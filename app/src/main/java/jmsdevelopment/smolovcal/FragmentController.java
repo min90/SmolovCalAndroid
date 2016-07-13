@@ -67,4 +67,21 @@ public class FragmentController {
             Log.d(FragmentController.class.getSimpleName(), "Fragment replace");
         }
     }
+
+    public boolean transaftFragmentWithAnimations(Activity activity, Fragment fragment, String backStackTag) {
+        if (fragment != null) {
+            Log.d(FragmentController.class.getSimpleName(), "Fragment " + fragment.toString());
+            FragmentManager fragmentManager = ((FragmentActivity) activity).getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
+            if (backStackTag != null) {
+                fragmentTransaction.addToBackStack(backStackTag);
+            }
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commitAllowingStateLoss();
+            Log.d(FragmentController.class.getSimpleName(), "Fragment replace");
+            return true;
+        }
+        return false;
+    }
 }
