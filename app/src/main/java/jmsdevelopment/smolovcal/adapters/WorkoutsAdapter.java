@@ -1,11 +1,13 @@
 package jmsdevelopment.smolovcal.adapters;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import jmsdevelopment.smolovcal.model.Workout;
 public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.WorkoutViewHolder> {
     private static final String TAG = WorkoutsAdapter.class.getSimpleName();
     private List<Workout> workoutList = new ArrayList<>();
+    private Context context;
 
-    public WorkoutsAdapter() {
+    public WorkoutsAdapter(Context context) {
+        this.context = context;
     }
 
     @Override
@@ -69,7 +73,8 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.Workou
 
         @Override
         public void onClick(View v) {
-
+//            Workout workout = workoutList.get(getAdapterPosition());
+//            Toast.makeText(context, "You clicked on: " + workout.getExercise(), Toast.LENGTH_LONG).show();
         }
     }
 }

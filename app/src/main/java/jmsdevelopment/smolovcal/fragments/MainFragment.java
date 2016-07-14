@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jmsdevelopment.smolovcal.FragmentController;
+import jmsdevelopment.smolovcal.MainActivity;
 import jmsdevelopment.smolovcal.R;
 import jmsdevelopment.smolovcal.adapters.WorkoutsAdapter;
 import jmsdevelopment.smolovcal.model.Workout;
@@ -43,6 +44,7 @@ public class MainFragment extends Fragment implements View.OnClickListener, Swip
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_screen, container, false);
+        FragmentController.get().setToolbarTitle("My workouts");
         floatingActionButton = (FloatingActionButton) view.findViewById(R.id.fabNewWorkout);
         refreshWorkouts = (SwipeRefreshLayout) view.findViewById(R.id.refreshWorkouts);
         refreshWorkouts.setOnRefreshListener(this);
@@ -53,7 +55,7 @@ public class MainFragment extends Fragment implements View.OnClickListener, Swip
     }
 
     private void setUpRecyclerView(View view) {
-        workoutsAdapter = new WorkoutsAdapter();
+        workoutsAdapter = new WorkoutsAdapter(getActivity());
         workouts();
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewWorkouts);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
