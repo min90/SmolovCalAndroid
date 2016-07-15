@@ -1,5 +1,6 @@
 package jmsdevelopment.smolovcal.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -7,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import jmsdevelopment.smolovcal.FragmentController;
 import jmsdevelopment.smolovcal.R;
+import jmsdevelopment.smolovcal.fragments.WorkoutFullCycleFragment;
+import jmsdevelopment.smolovcal.fragments.WorkoutJuniorCycleFragment;
 import jmsdevelopment.smolovcal.model.Workout;
 
 /**
@@ -69,12 +72,17 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.Workou
             txtMax = (TextView) itemView.findViewById(R.id.txtMax);
             txtJrSr = (TextView) itemView.findViewById(R.id.txtJrSr);
             txtProgress = (TextView) itemView.findViewById(R.id.txtProgress);
+            itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-//            Workout workout = workoutList.get(getAdapterPosition());
-//            Toast.makeText(context, "You clicked on: " + workout.getExercise(), Toast.LENGTH_LONG).show();
+            Workout workout = workoutList.get(getAdapterPosition());
+            if (workout.isJunior()) {
+                FragmentController.get().transaftFragmentWithAnimations((Activity) context, new WorkoutJuniorCycleFragment(), "junior_cycle_fragment");
+            } else if(workout.isFull()) {
+                FragmentController.get().transaftFragmentWithAnimations((Activity) context, new WorkoutFullCycleFragment(), "full_cycle_fragment");
+            }
         }
     }
 }

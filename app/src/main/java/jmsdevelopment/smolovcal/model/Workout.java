@@ -1,7 +1,7 @@
 package jmsdevelopment.smolovcal.model;
 
-import com.orm.SugarRecord;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,7 +9,7 @@ import java.util.Map;
  * Created by Jesper on 04/07/2016.
  */
 
-public class Workout {
+public class Workout implements Serializable {
     private String exercise;
     private int progress;
     private boolean junior;

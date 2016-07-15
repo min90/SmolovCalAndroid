@@ -38,7 +38,27 @@
     <string name="new_increment">Increment?</string>
     <string name="new_junior">Junior?</string>
     <string name="new_full">Full Smolov?</string>
+
     <!-- Register screen -->
     <string name="button_register">Register my account</string>
     <string name="name_hint">Name</string>
+
+    <!-- Junior Cycle Screen -->
+    <string name="junior_day">Day</string>
+    <string name="junior_sets">Sets</string>
+    <string name="junior_reps">Reps</string>
+    <string name="junior_weight">Weight</string>
+    <string name="junior_week_1">Week 1</string>
+    <string name="junior_week_2">Week 2</string>
+    <string name="junior_week_3">Week 3</string>
+    <string name="junior_done">Done it</string>
+
+    <!-- Days -->
+    <string name="Monday">Monday</string>
+    <string name="Tuesday">Tuesday</string>
+    <string name="Wednesday">Wednesday</string>
+    <string name="Thursday">Thursday</string>
+    <string name="Friday">Friday</string>
+    <string name="Saturday">Saturday</string>
+    <string name="Sunday">Sunday</string>
 </resources>
