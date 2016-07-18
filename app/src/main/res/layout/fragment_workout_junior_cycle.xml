@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -12,7 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -32,65 +33,12 @@
                         android:id="@+id/textView16"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
                         android:background="@android:color/transparent"
                         android:gravity="center_vertical|center_horizontal"
                         android:text="@string/junior_week_1"
                         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                        android:textColor="@color/textColor"
-                        android:layout_marginTop="6dp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="6dp"
-                        android:layout_marginLeft="16dp">
-
-                        <TextView
-                            android:id="@+id/textView100"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/junior_day"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            android:textColor="@color/textColor" />
-
-                        <TextView
-                            android:id="@+id/textView90"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/junior_sets"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            android:textColor="@color/textColor" />
-
-                        <TextView
-                            android:id="@+id/textView70"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/junior_reps"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            android:textColor="@color/textColor" />
-
-                        <TextView
-                            android:id="@+id/textView80"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center_vertical|center_horizontal"
-                            android:text="@string/junior_weight"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            android:textColor="@color/textColor" />
-
-                        <TextView
-                            android:text="@string/junior_done"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/textView40"
-                            android:layout_weight="1"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            android:textColor="@color/textColor" />
-                    </LinearLayout>
+                        android:textColor="@color/textColor" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -105,11 +53,20 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/textView100"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/junior_day"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/textColor" />
+
+                            <TextView
                                 android:id="@+id/txtDay1Week1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="@string/Monday"
+                                android:text="@string/day_1"
                                 android:textColor="@color/textColor" />
 
                             <TextView
@@ -117,7 +74,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="@string/Wednesday"
+                                android:text="@string/day_2"
                                 android:textColor="@color/textColor" />
 
                             <TextView
@@ -125,7 +82,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="@string/Friday"
+                                android:text="@string/day_3"
                                 android:textColor="@color/textColor" />
 
                             <TextView
@@ -133,7 +90,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="@string/Sunday"
+                                android:text="@string/day_4"
                                 android:textColor="@color/textColor" />
 
                         </LinearLayout>
@@ -143,6 +100,15 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView90"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:text="@string/junior_sets"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/textColor" />
 
                             <TextView
                                 android:id="@+id/txtDay1SetsWeek1"
@@ -182,6 +148,15 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView70"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:text="@string/junior_reps"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/textColor" />
 
                             <TextView
                                 android:id="@+id/txtDay1RepsWeek1"
@@ -224,6 +199,15 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/textView80"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:text="@string/junior_weight"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/textColor" />
+
+                            <TextView
                                 android:id="@+id/txtDay1Weight1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -257,10 +241,44 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:orientation="vertical"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1">
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView40"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/junior_done"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/textColor" />
+
+                            <CheckBox
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/checkBox5"
+                                android:theme="@style/CheckBoxCustom"
+                                app:buttonTint="#FFFFFF" />
+
+                            <CheckBox
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/checkBox4"
+                                app:buttonTint="#FFFFFF" />
+
+                            <CheckBox
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/checkBox3"
+                                app:buttonTint="#FFFFFF" />
+
+                            <CheckBox
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/checkBox2"
+                                app:buttonTint="#FFFFFF" />
 
                         </LinearLayout>
 
@@ -287,56 +305,12 @@
                         android:id="@+id/textView160"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
                         android:background="@android:color/transparent"
                         android:gravity="center_vertical|center_horizontal"
                         android:text="@string/junior_week_2"
                         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                        android:textColor="@color/textColor"
-                        android:layout_marginTop="6dp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="6dp"
-                        android:layout_marginLeft="16dp">
-
-                        <TextView
-                            android:id="@+id/textView10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/junior_day"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            android:textColor="@color/textColor" />
-
-                        <TextView
-                            android:id="@+id/textView9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/junior_sets"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            android:textColor="@color/textColor" />
-
-                        <TextView
-                            android:id="@+id/textView7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/junior_reps"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            android:textColor="@color/textColor" />
-
-                        <TextView
-                            android:id="@+id/textView8"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center_vertical|center_horizontal"
-                            android:text="@string/junior_weight"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            android:textColor="@color/textColor" />
-                    </LinearLayout>
+                        android:textColor="@color/textColor" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -351,11 +325,20 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/textView10"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/junior_day"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/textColor" />
+
+                            <TextView
                                 android:id="@+id/txtDay1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="@string/Monday"
+                                android:text="@string/day_1"
                                 android:textColor="@color/textColor" />
 
                             <TextView
@@ -363,7 +346,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="@string/Wednesday"
+                                android:text="@string/day_2"
                                 android:textColor="@color/textColor" />
 
                             <TextView
@@ -371,7 +354,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="@string/Friday"
+                                android:text="@string/day_3"
                                 android:textColor="@color/textColor" />
 
                             <TextView
@@ -379,7 +362,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="@string/Sunday"
+                                android:text="@string/day_4"
                                 android:textColor="@color/textColor" />
 
                         </LinearLayout>
@@ -389,6 +372,15 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView9"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:text="@string/junior_sets"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/textColor" />
 
                             <TextView
                                 android:id="@+id/txtDay1Sets"
@@ -428,6 +420,15 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView7"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:text="@string/junior_reps"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/textColor" />
 
                             <TextView
                                 android:id="@+id/txtDay1Reps"
@@ -470,6 +471,15 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/textView8"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:text="@string/junior_weight"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/textColor" />
+
+                            <TextView
                                 android:id="@+id/txtDay1Weight2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -502,6 +512,45 @@
                                 android:textColor="@color/textColor" />
                         </LinearLayout>
 
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:text="@string/junior_done"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView4"
+                                android:textColor="@color/textColor"
+                                android:textSize="22sp" />
+
+                            <CheckBox
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/checkBox9"
+                                app:buttonTint="#FFFFFF" />
+
+                            <CheckBox
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/checkBox8"
+                                app:buttonTint="#FFFFFF" />
+
+                            <CheckBox
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/checkBox7"
+                                app:buttonTint="#FFFFFF" />
+
+                            <CheckBox
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/checkBox6"
+                                app:buttonTint="#FFFFFF" />
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -524,56 +573,12 @@
                         android:id="@+id/textView1600"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
                         android:background="@android:color/transparent"
                         android:gravity="center_vertical|center_horizontal"
                         android:text="@string/junior_week_3"
                         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                        android:textColor="@color/textColor"
-                        android:layout_marginTop="6dp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="6dp"
-                        android:layout_marginLeft="16dp">
-
-                        <TextView
-                            android:id="@+id/textView101"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/junior_day"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            android:textColor="@color/textColor" />
-
-                        <TextView
-                            android:id="@+id/textView91"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/junior_sets"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            android:textColor="@color/textColor" />
-
-                        <TextView
-                            android:id="@+id/textView71"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/junior_reps"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            android:textColor="@color/textColor" />
-
-                        <TextView
-                            android:id="@+id/textView81"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center_vertical|center_horizontal"
-                            android:text="@string/junior_weight"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            android:textColor="@color/textColor" />
-                    </LinearLayout>
+                        android:textColor="@color/textColor" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -588,11 +593,20 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/textView101"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/junior_day"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/textColor" />
+
+                            <TextView
                                 android:id="@+id/txtDay1Week3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="@string/Monday"
+                                android:text="@string/day_1"
                                 android:textColor="@color/textColor" />
 
                             <TextView
@@ -600,7 +614,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="@string/Wednesday"
+                                android:text="@string/day_2"
                                 android:textColor="@color/textColor" />
 
                             <TextView
@@ -608,15 +622,15 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="@string/Friday"
-                                android:textColor="@color/textColor" />
+                                android:textColor="@color/textColor"
+                                android:text="@string/day_3" />
 
                             <TextView
                                 android:id="@+id/txtDay4Week3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="@string/Sunday"
+                                android:text="@string/day_4"
                                 android:textColor="@color/textColor" />
 
                         </LinearLayout>
@@ -626,6 +640,15 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView91"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:text="@string/junior_sets"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/textColor" />
 
                             <TextView
                                 android:id="@+id/txtDay1SetsWeek3"
@@ -665,6 +688,15 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView71"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:text="@string/junior_reps"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/textColor" />
 
                             <TextView
                                 android:id="@+id/txtDay1RepsWeek3"
@@ -707,6 +739,15 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/textView81"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:text="@string/junior_weight"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/textColor" />
+
+                            <TextView
                                 android:id="@+id/txtDay1Weight3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -737,6 +778,46 @@
                                 android:layout_weight="1.5"
                                 android:text="TextView"
                                 android:textColor="@color/textColor" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:text="@string/junior_done"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView11"
+                                android:textSize="22sp"
+                                android:textColor="@color/textColor" />
+
+                            <CheckBox
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/checkBox13"
+                                app:buttonTint="#FFFFFF" />
+
+                            <CheckBox
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/checkBox12"
+                                app:buttonTint="#FFFFFF" />
+
+                            <CheckBox
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/checkBox11"
+                                app:buttonTint="#FFFFFF" />
+
+                            <CheckBox
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/checkBox10"
+                                app:buttonTint="#FFFFFF" />
+
                         </LinearLayout>
 
                     </LinearLayout>
