@@ -44,22 +44,23 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="6dp"
-                        android:layout_marginLeft="16dp">
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingRight="16dp">
 
                             <TextView
                                 android:id="@+id/textView100"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:text="@string/junior_day"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                android:textColor="@color/textColor" />
+                                android:textColor="@color/textColor"
+                                android:textSize="18sp" />
 
                             <TextView
                                 android:id="@+id/txtDay1Week1"
@@ -96,19 +97,19 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingRight="16dp">
 
                             <TextView
                                 android:id="@+id/textView90"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="2"
                                 android:text="@string/junior_sets"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                android:textColor="@color/textColor" />
+                                android:textColor="@color/textColor"
+                                android:textSize="18sp" />
 
                             <TextView
                                 android:id="@+id/txtDay1SetsWeek1"
@@ -144,19 +145,19 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingRight="16dp">
 
                             <TextView
                                 android:id="@+id/textView70"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="2"
                                 android:text="@string/junior_reps"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                android:textColor="@color/textColor" />
+                                android:textColor="@color/textColor"
+                                android:textSize="18sp" />
 
                             <TextView
                                 android:id="@+id/txtDay1RepsWeek1"
@@ -193,19 +194,19 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingRight="16dp">
 
                             <TextView
                                 android:id="@+id/textView80"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1.5"
                                 android:text="@string/junior_weight"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                android:textColor="@color/textColor" />
+                                android:textColor="@color/textColor"
+                                android:textSize="18sp" />
 
                             <TextView
                                 android:id="@+id/txtDay1Weight1"
@@ -243,41 +244,41 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/textView40"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:text="@string/junior_done"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                android:textColor="@color/textColor" />
+                                android:textColor="@color/textColor"
+                                android:textSize="18sp" />
 
                             <CheckBox
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/checkBox5"
+                                android:id="@+id/chkBoxWeek1Day1"
                                 android:theme="@style/CheckBoxCustom"
+                                app:buttonTint="#FFFFFF"
+                                android:onClick="saveProgressOfWorkout" />
+
+                            <CheckBox
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/chkBoxWeek1Day2"
                                 app:buttonTint="#FFFFFF" />
 
                             <CheckBox
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/checkBox4"
+                                android:id="@+id/chkBoxWeek1Day3"
                                 app:buttonTint="#FFFFFF" />
 
                             <CheckBox
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/checkBox3"
-                                app:buttonTint="#FFFFFF" />
-
-                            <CheckBox
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:id="@+id/checkBox2"
+                                android:id="@+id/chkBoxWeek1Day4"
                                 app:buttonTint="#FFFFFF" />
 
                         </LinearLayout>
@@ -319,19 +320,19 @@
                         android:layout_marginLeft="16dp">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingRight="16dp">
 
                             <TextView
                                 android:id="@+id/textView10"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:text="@string/junior_day"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                android:textColor="@color/textColor" />
+                                android:textColor="@color/textColor"
+                                android:textSize="18sp" />
 
                             <TextView
                                 android:id="@+id/txtDay1"
@@ -368,19 +369,19 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingRight="16dp">
 
                             <TextView
                                 android:id="@+id/textView9"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="2"
                                 android:text="@string/junior_sets"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                android:textColor="@color/textColor" />
+                                android:textColor="@color/textColor"
+                                android:textSize="18sp" />
 
                             <TextView
                                 android:id="@+id/txtDay1Sets"
@@ -416,19 +417,19 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingRight="16dp">
 
                             <TextView
                                 android:id="@+id/textView7"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="2"
                                 android:text="@string/junior_reps"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                android:textColor="@color/textColor" />
+                                android:textColor="@color/textColor"
+                                android:textSize="18sp" />
 
                             <TextView
                                 android:id="@+id/txtDay1Reps"
@@ -465,19 +466,19 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingRight="16dp">
 
                             <TextView
                                 android:id="@+id/textView8"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1.5"
                                 android:text="@string/junior_weight"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                android:textColor="@color/textColor" />
+                                android:textColor="@color/textColor"
+                                android:textSize="18sp" />
 
                             <TextView
                                 android:id="@+id/txtDay1Weight2"
@@ -515,8 +516,7 @@
                         <LinearLayout
                             android:orientation="vertical"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1">
+                            android:layout_height="match_parent">
 
                             <TextView
                                 android:text="@string/junior_done"
@@ -524,30 +524,30 @@
                                 android:layout_height="wrap_content"
                                 android:id="@+id/textView4"
                                 android:textColor="@color/textColor"
-                                android:textSize="22sp" />
+                                android:textSize="18sp" />
 
                             <CheckBox
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/checkBox9"
+                                android:id="@+id/chkBoxWeek2Day1"
                                 app:buttonTint="#FFFFFF" />
 
                             <CheckBox
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/checkBox8"
+                                android:id="@+id/chkBoxWeek2Day2"
                                 app:buttonTint="#FFFFFF" />
 
                             <CheckBox
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/checkBox7"
+                                android:id="@+id/chkBoxWeek2Day3"
                                 app:buttonTint="#FFFFFF" />
 
                             <CheckBox
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/checkBox6"
+                                android:id="@+id/chkBoxWeek2Day4"
                                 app:buttonTint="#FFFFFF" />
                         </LinearLayout>
 
@@ -561,7 +561,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -587,19 +588,19 @@
                         android:layout_marginLeft="16dp">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingRight="16dp">
 
                             <TextView
                                 android:id="@+id/textView101"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:text="@string/junior_day"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                android:textColor="@color/textColor" />
+                                android:textColor="@color/textColor"
+                                android:textSize="18sp" />
 
                             <TextView
                                 android:id="@+id/txtDay1Week3"
@@ -636,19 +637,19 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingRight="16dp">
 
                             <TextView
                                 android:id="@+id/textView91"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="2"
                                 android:text="@string/junior_sets"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                android:textColor="@color/textColor" />
+                                android:textColor="@color/textColor"
+                                android:textSize="18sp" />
 
                             <TextView
                                 android:id="@+id/txtDay1SetsWeek3"
@@ -684,19 +685,19 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingRight="16dp">
 
                             <TextView
                                 android:id="@+id/textView71"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="2"
                                 android:text="@string/junior_reps"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                android:textColor="@color/textColor" />
+                                android:textColor="@color/textColor"
+                                android:textSize="18sp" />
 
                             <TextView
                                 android:id="@+id/txtDay1RepsWeek3"
@@ -733,19 +734,19 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingRight="16dp">
 
                             <TextView
                                 android:id="@+id/textView81"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1.5"
                                 android:text="@string/junior_weight"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                android:textColor="@color/textColor" />
+                                android:textColor="@color/textColor"
+                                android:textSize="18sp" />
 
                             <TextView
                                 android:id="@+id/txtDay1Weight3"
@@ -782,40 +783,40 @@
 
                         <LinearLayout
                             android:orientation="vertical"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1">
+                            android:paddingRight="16dp">
 
                             <TextView
                                 android:text="@string/junior_done"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/textView11"
-                                android:textSize="22sp"
+                                android:textSize="18sp"
                                 android:textColor="@color/textColor" />
 
                             <CheckBox
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/checkBox13"
+                                android:id="@+id/chkBoxWeek3Day1"
                                 app:buttonTint="#FFFFFF" />
 
                             <CheckBox
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/checkBox12"
+                                android:id="@+id/chkBoxWeek3Day2"
                                 app:buttonTint="#FFFFFF" />
 
                             <CheckBox
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/checkBox11"
+                                android:id="@+id/chkBoxWeek3Day3"
                                 app:buttonTint="#FFFFFF" />
 
                             <CheckBox
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/checkBox10"
+                                android:id="@+id/chkBoxWeek3Day4"
                                 app:buttonTint="#FFFFFF" />
 
                         </LinearLayout>
