@@ -25,6 +25,7 @@ import jmsdevelopment.smolovcal.MainActivity;
 import jmsdevelopment.smolovcal.R;
 import jmsdevelopment.smolovcal.SharedPreferencesManager;
 import jmsdevelopment.smolovcal.Util;
+import jmsdevelopment.smolovcal.model.User;
 
 /**
  * Created by Jesper on 01/07/2016.
@@ -68,6 +69,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
+                    User.getCurrentUser().setEmail(user.getEmail());
+                    SharedPreferencesManager.get().setUserId(User.getCurrentUser().getUserID());
                     //Kan bruge dette til at tjekke om vi er på eller ej.
                     Log.d(TAG, "User is logged in");
                 } else {

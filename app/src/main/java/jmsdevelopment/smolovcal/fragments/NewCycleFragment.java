@@ -1,7 +1,7 @@
 package jmsdevelopment.smolovcal.fragments;
 
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
@@ -10,9 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -20,6 +21,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import jmsdevelopment.smolovcal.R;
+import jmsdevelopment.smolovcal.SharedPreferencesManager;
+import jmsdevelopment.smolovcal.model.User;
 import jmsdevelopment.smolovcal.model.Workout;
 
 /**
@@ -114,18 +117,19 @@ public class NewCycleFragment extends Fragment implements View.OnClickListener {
                     workout.setJunior(true);
                 }
 
-                String key = databaseReference.child("Workout").push().getKey();
+                DatabaseReference key = databaseReference.child(SharedPreferencesManager.get().getUserId());
+                String child = databaseReference.child("Workout").push().getKey();
+                workout.setFirebaseKey(child);
                 Map<String, Object> values = workout.toMap();
                 Map<String, Object> childUpdates = new HashMap<>();
-                childUpdates.put(key, values);
-                databaseReference.updateChildren(childUpdates);
+                childUpdates.put(child, values);
+                Log.d(TAG, "New: " + childUpdates.toString());
+                key.updateChildren(childUpdates);
                 Log.d(TAG, "Saving to db");
-
             }
         } catch (NullPointerException ex) {
             Log.e(TAG, "TextInputLayout was null", ex);
         }
-
     }
 
     @Override

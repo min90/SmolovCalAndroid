@@ -12,6 +12,7 @@ public class SharedPreferencesManager {
     private static final String SHARED_TAG = "snake_eyes_shared_prefs";
     private static final String VERSION_TAG = "version";
     private static final String REMEMBER_ME_TAG = "remember_me";
+    private static final String USER_ID_TAG = "user_id";
 
     private static SharedPreferencesManager instance;
     private SharedPreferences preferences;
@@ -46,5 +47,13 @@ public class SharedPreferencesManager {
 
     public boolean getRememberMe(){
         return preferences.getBoolean(REMEMBER_ME_TAG, false);
+    }
+
+    public void setUserId(String userId){
+        editor.putString(USER_ID_TAG, userId).commit();
+    }
+
+    public String getUserId(){
+        return preferences.getString(USER_ID_TAG, "no user id");
     }
 }

@@ -1,31 +1,51 @@
 package jmsdevelopment.smolovcal.model;
 
-import com.orm.SugarRecord;
 
 /**
  * Created by Jesper on 04/07/2016.
  */
 
-public class User extends SugarRecord {
-    private String name;
+public class User {
+    private String email;
     private int age;
-    private Workout cycles;
+    private String userID;
 
-    public User(String name, Workout cycles, int age) {
-        this.name = name;
-        this.cycles = cycles;
-        this.age = age;
+    private static User instance;
+
+    public static User getCurrentUser() {
+        if(instance == null) {
+            instance = new User();
+        }
+        return instance;
     }
 
-    public User() {
+    private User() {
     }
 
-    public String getName() {
-        return name;
+    private String generateUserID(){
+        if (email != null && !email.isEmpty()) {
+            int index = email.indexOf('@');
+            userID = email.substring(0, index);
+            return userID;
+        } else {
+            return null;
+        }
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getUserID(){
+        if(userID == null) {
+            return generateUserID();
+        } else {
+            return userID;
+        }
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getAge() {
@@ -36,11 +56,4 @@ public class User extends SugarRecord {
         this.age = age;
     }
 
-    public Workout getCycles() {
-        return cycles;
-    }
-
-    public void setCycles(Workout cycles) {
-        this.cycles = cycles;
-    }
 }

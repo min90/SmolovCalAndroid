@@ -16,6 +16,7 @@ public class Workout implements Serializable {
     private boolean full;
     private int increment;
     private int max;
+    private String firebaseKey;
 
     public Workout() {
     }
@@ -76,13 +77,36 @@ public class Workout implements Serializable {
         this.increment = increment;
     }
 
+    public void setFirebaseKey(String userID) {
+        this.firebaseKey = userID;
+    }
+
+    public String getFirebaseKey(){
+        return firebaseKey;
+    }
+
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("exercise", exercise);
+        result.put("progress", progress);
         result.put("increment", increment);
-        result.put("one_rep_max", max);
+        result.put("max", max);
         result.put("junior", junior);
         result.put("full", full);
+        result.put("firebaseKey", firebaseKey);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Workout{" +
+                "exercise='" + exercise + '\'' +
+                ", progress=" + progress +
+                ", junior=" + junior +
+                ", full=" + full +
+                ", increment=" + increment +
+                ", max=" + max +
+                ", firebaseKey='" + firebaseKey + '\'' +
+                '}';
     }
 }

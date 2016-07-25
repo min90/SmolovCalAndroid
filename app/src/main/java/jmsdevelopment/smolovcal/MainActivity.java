@@ -97,8 +97,9 @@ public class MainActivity extends AppCompatActivity
 
     private void signOut(){
         SharedPreferencesManager.get().setRememberMe(false);
+        SharedPreferencesManager.get().setUserId(null);
         FirebaseAuth.getInstance().signOut();
-        FragmentController.get().transactFragments(this, new LoginFragment(), "login_fragment");
+        FragmentController.get().returnToHome(this);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -108,11 +109,14 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_my_workouts) {
-           FragmentController.get().transaftFragmentWithAnimations(this, new MainFragment(), "main_fragment");
+            getSupportFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+           FragmentController.get().transaftFragmentWithAnimations(this, new MainFragment(), null);
         } else if (id == R.id.nav_current_workout) {
+            getSupportFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         } else if (id == R.id.nav_my_account) {
-            FragmentController.get().transaftFragmentWithAnimations(this, new MyAccountFragment(), "account_fragment");
+            getSupportFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+            FragmentController.get().transaftFragmentWithAnimations(this, new MyAccountFragment(), null);
         }  else if (id == R.id.nav_sign_out) {
             signOut();
         }

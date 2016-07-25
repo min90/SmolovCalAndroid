@@ -53,7 +53,11 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.Workou
         Workout workout = workoutList.get(position);
         holder.txtExercise.setText(workout.getExercise());
         holder.txtMax.setText(String.valueOf(workout.getMax()));
-        holder.txtJrSr.setText(String.valueOf(workout.isFull()));
+        if (workout.isFull()) {
+            holder.txtJrSr.setText("Full");
+        } else if (workout.isJunior()) {
+            holder.txtJrSr.setText("Junior");
+        }
         holder.txtProgress.setText(String.valueOf(10));
 
     }
@@ -79,8 +83,8 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.Workou
         public void onClick(View v) {
             Workout workout = workoutList.get(getAdapterPosition());
             if (workout.isJunior()) {
-                FragmentController.get().transaftFragmentWithAnimations((Activity) context, new WorkoutJuniorCycleFragment(), "junior_cycle_fragment");
-            } else if(workout.isFull()) {
+                FragmentController.get().transaftFragmentWithAnimations((Activity) context, WorkoutJuniorCycleFragment.newInstance(workout), "junior_cycle_fragment");
+            } else if (workout.isFull()) {
                 FragmentController.get().transaftFragmentWithAnimations((Activity) context, new WorkoutFullCycleFragment(), "full_cycle_fragment");
             }
         }

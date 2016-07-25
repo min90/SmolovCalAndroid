@@ -260,8 +260,7 @@
                                 android:layout_height="wrap_content"
                                 android:id="@+id/chkBoxWeek1Day1"
                                 android:theme="@style/CheckBoxCustom"
-                                app:buttonTint="#FFFFFF"
-                                android:onClick="saveProgressOfWorkout" />
+                                app:buttonTint="#FFFFFF" />
 
                             <CheckBox
                                 android:layout_width="match_parent"

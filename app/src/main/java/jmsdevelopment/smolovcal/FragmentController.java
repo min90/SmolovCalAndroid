@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 
+import jmsdevelopment.smolovcal.fragments.LoginFragment;
 import jmsdevelopment.smolovcal.fragments.MainFragment;
 
 /**
@@ -40,7 +41,7 @@ public class FragmentController {
             fragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         }
 
-        transactFragments(activity, new MainFragment(), "start_fragment");
+        transactFragments(activity, new LoginFragment(), "login_fragment");
     }
 
     public void transactDialogFragment(FragmentActivity fragmentActivity, DialogFragment fragment, String backStackTag) {
@@ -56,7 +57,6 @@ public class FragmentController {
 
     public void transactFragments(Activity activity, Fragment fragment, String backStackTag) {
         if (fragment != null) {
-            Log.d(FragmentController.class.getSimpleName(), "Fragment " + fragment.toString());
             FragmentManager fragmentManager = ((FragmentActivity) activity).getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             if (backStackTag != null) {
