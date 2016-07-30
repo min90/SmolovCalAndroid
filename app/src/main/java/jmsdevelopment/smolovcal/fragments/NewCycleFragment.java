@@ -1,5 +1,6 @@
 package jmsdevelopment.smolovcal.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -20,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Map;
 
+import jmsdevelopment.smolovcal.FragmentController;
 import jmsdevelopment.smolovcal.R;
 import jmsdevelopment.smolovcal.SharedPreferencesManager;
 import jmsdevelopment.smolovcal.model.User;
@@ -126,9 +129,28 @@ public class NewCycleFragment extends Fragment implements View.OnClickListener {
                 Log.d(TAG, "New: " + childUpdates.toString());
                 key.updateChildren(childUpdates);
                 Log.d(TAG, "Saving to db");
+
+                proceedToWorkoutFragment(fullCycle, workout);
             }
         } catch (NullPointerException ex) {
             Log.e(TAG, "TextInputLayout was null", ex);
+        }
+    }
+
+    private void hideKeyboard() {
+        View view = getActivity().getCurrentFocus();
+        if (view != null) {
+            ((InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE)).
+                    hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
+
+    private void proceedToWorkoutFragment(boolean fullCycle, Workout newWorkout) {
+        hideKeyboard();
+        if(fullCycle) {
+            FragmentController.get().transaftFragmentWithAnimations(getActivity(), new WorkoutFullCycleFragment(), "full_cycle_workout");
+        } else {
+            FragmentController.get().transaftFragmentWithAnimations(getActivity(), WorkoutJuniorCycleFragment.newInstance(newWorkout), "junior_cycle_workout");
         }
     }
 

@@ -1,5 +1,6 @@
 package jmsdevelopment.smolovcal.fragments;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,9 +11,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ProgressBar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -41,6 +44,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private TextInputLayout tipSignInPassword;
     private CheckBox cheRememberMe;
     private Button btnNewRegister;
+    private ProgressDialog lgnProgressBar;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -81,6 +85,18 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
+    private void setUpProgressBar() {
+        lgnProgressBar = new ProgressDialog(getActivity());
+        lgnProgressBar.setMessage("Signing in");
+        lgnProgressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        lgnProgressBar.setCancelable(true);
+        try {
+            lgnProgressBar.show();
+        } catch (WindowManager.BadTokenException ex){
+            Log.e(TAG, "Activty might be destroyed", ex);
+        }
+    }
+
     private void passLoginCredentials() {
         String email;
         String password;
@@ -98,6 +114,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 tipSignInEmail.setErrorEnabled(false);
                 tipSignInPassword.setErrorEnabled(false);
                 hideKeyboard();
+                setUpProgressBar();
 
                 SharedPreferencesManager.get().setRememberMe(cheRememberMe.isChecked());
                 mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
@@ -152,6 +169,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         try {
             tipSignInEmail.getEditText().setText("");
             tipSignInPassword.getEditText().setText("");
+            if (lgnProgressBar.isShowing()) {
+                lgnProgressBar.dismiss();
+            }
         } catch (NullPointerException ex) {
             Log.e(TAG, "Unable to set text", ex);
         }
