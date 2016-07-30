@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -241,7 +242,7 @@ public class WorkoutJuniorCycleFragment extends Fragment implements CompoundButt
         LinkedHashMap<Integer, Integer> checkBoxIds = mapOfCheckboxIDAndProgress();
         if (workoutFromSerialization != null) {
             int progressToUndo = checkBoxIds.get(view.getId());
-            if(progressToUndo == 1) {
+            if (progressToUndo == 1) {
                 updateProgressAfterUndo(0);
                 lockCheckBoxAfterUndoOfProgress(progressToUndo + 1);
             } else {
