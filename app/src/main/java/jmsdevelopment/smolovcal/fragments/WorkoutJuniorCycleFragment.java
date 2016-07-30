@@ -28,6 +28,7 @@ import jmsdevelopment.smolovcal.model.Workout;
 public class WorkoutJuniorCycleFragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
     private static final String TAG = WorkoutJuniorCycleFragment.class.getSimpleName();
     private static final String WORKOUT_TAG = "workout";
+    private static final String PROGRESS_TAG = "progress";
 
     private TextView txtDay1WeightWeek1, txtDay2WeightWeek1, txtDay3WeightWeek1, txtDay4WeightWeek1;
     private TextView txtDay1WeightWeek2, txtDay2WeightWeek2, txtDay3WeightWeek2, txtDay4WeightWeek2;
@@ -35,7 +36,6 @@ public class WorkoutJuniorCycleFragment extends Fragment implements CompoundButt
     private CheckBox chcBoxWeek1Day1, chcBoxWeek1Day2, chcBoxWeek1Day3, chcBoxWeek1Day4;
     private CheckBox chcBoxWeek2Day1, chcBoxWeek2Day2, chcBoxWeek2Day3, chcBoxWeek2Day4;
     private CheckBox chcBoxWeek3Day1, chcBoxWeek3Day2, chcBoxWeek3Day3, chcBoxWeek3Day4;
-    private LinkedHashMap<Integer, Integer> checkboxIds;
     private DatabaseReference databaseReference;
     private Workout workoutFromSerialization;
 
@@ -103,8 +103,7 @@ public class WorkoutJuniorCycleFragment extends Fragment implements CompoundButt
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        checkboxIds = new LinkedHashMap<>();
-        addIdToCheckboxIds();
+        mapOfCheckboxIDAndProgress();
         Bundle args = getArguments();
         workoutFromSerialization = (Workout) args.getSerializable(WORKOUT_TAG);
         String workoutTitle = workoutFromSerialization == null ? "Workout" : "Workout " + workoutFromSerialization.getExercise();
@@ -179,7 +178,8 @@ public class WorkoutJuniorCycleFragment extends Fragment implements CompoundButt
         }
     }
 
-    private void addIdToCheckboxIds() {
+    private LinkedHashMap<Integer, Integer> mapOfCheckboxIDAndProgress() {
+        LinkedHashMap<Integer, Integer> checkboxIds = new LinkedHashMap<>();
         checkboxIds.put(chcBoxWeek1Day1.getId(), 1);
         checkboxIds.put(chcBoxWeek1Day2.getId(), 2);
         checkboxIds.put(chcBoxWeek1Day3.getId(), 3);
@@ -192,36 +192,61 @@ public class WorkoutJuniorCycleFragment extends Fragment implements CompoundButt
         checkboxIds.put(chcBoxWeek3Day2.getId(), 10);
         checkboxIds.put(chcBoxWeek3Day3.getId(), 11);
         checkboxIds.put(chcBoxWeek3Day4.getId(), 12);
-    }
-
-    private void updateProgressOfWorkout(View view) {
-        saveProgress(view);
-    }
-
-    private void saveProgress(View view) {
-        if (checkboxIds.containsKey(view.getId())) {
-            if (workoutFromSerialization != null) {
-                //databaseReference.child()
-                databaseReference.child(SharedPreferencesManager.get().getUserId())
-                        .child(workoutFromSerialization.getFirebaseKey())
-                        .child("progress")
-                        .setValue(checkboxIds.get(view.getId()));
-                Log.d(TAG, "Updating workout");
-                Log.d(TAG, "Progress: " + checkboxIds.get(view.getId()));
-            }
-        }
+        return checkboxIds;
     }
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        updateProgressOfWorkout(buttonView);
-        Log.d(TAG, "Checked" + isChecked);
+        Log.d(TAG, "Checked " + isChecked);
+        if (isChecked) {
+            saveProgress(buttonView);
+        } else {
+            undoProgress(buttonView);
+            //Vi tjekker om checkboxes foran denne er krydset af, hvis de er det, afkrydser vi dem.
+        }
+    }
+
+    private void undoProgress(View view) {
+        LinkedHashMap<Integer, Integer> checkBoxIds = mapOfCheckboxIDAndProgress();
+        if(workoutFromSerialization != null) {
+            int progressToUndo = checkBoxIds.get(view.getId());
+            Log.d(TAG, "Progress to undo: " + progressToUndo);
+            updateProgressAfterUndo(progressToUndo);
+        }
+        lockFutureWeeks();
+    }
+
+    private void updateProgressAfterUndo(int progressToUndo){
+        LinkedHashMap<Integer, CheckBox> checkBoxLinkedHashMap = putCheckboxesInCheckboxMap();
+        for (int i = progressToUndo; i <= checkBoxLinkedHashMap.size(); i++) {
+            if (checkBoxLinkedHashMap.get(i) != null) {
+                checkBoxLinkedHashMap.get(i).setChecked(false);
+                updateFirebaseNode(progressToUndo);
+            }
+        }
+    }
+
+    private void updateFirebaseNode(int progress) {
+        databaseReference.child(SharedPreferencesManager.get().getUserId())
+                .child(workoutFromSerialization.getFirebaseKey())
+                .child(PROGRESS_TAG)
+                .setValue(progress);
+    }
+
+
+    private void saveProgress(View view) {
+        LinkedHashMap<Integer, Integer> checkBoxIds = mapOfCheckboxIDAndProgress();
+        if (checkBoxIds.containsKey(view.getId())) {
+            if (workoutFromSerialization != null) {
+                updateFirebaseNode(checkBoxIds.get(view.getId()));
+            }
+        }
+        lockFutureWeeks();
     }
 
     private void assignProgressOfWorkoutAfterViewIsCreated() {
         if (workoutFromSerialization != null) {
             int progress = workoutFromSerialization.getProgress();
-            Log.d(TAG, "Progress to set: " + progress);
             updateCheckboxes(progress);
         }
     }
@@ -235,11 +260,27 @@ public class WorkoutJuniorCycleFragment extends Fragment implements CompoundButt
         }
     }
 
-    private void lockFutureWeeks(){
+    private void lockFutureWeeks() {
         LinkedHashMap<Integer, CheckBox> checkBoxLinkedHashMap = putCheckboxesInCheckboxMap();
-        for (int i = 0; i < checkBoxLinkedHashMap.size(); i++) {
-            //Tjek for hver 4 uge.
+        for (int i = 0; i <= 4; i++) {
+            if (!checkBoxLinkedHashMap.get(i).isChecked()) {
+                return;
+            } else {
+                checkBoxLinkedHashMap.get(5).setEnabled(true);
+                checkBoxLinkedHashMap.get(6).setEnabled(true);
+                checkBoxLinkedHashMap.get(7).setEnabled(true);
+                checkBoxLinkedHashMap.get(8).setEnabled(true);
+            }
         }
-
+        for (int i = 4; i <= 8; i++) {
+            if (!checkBoxLinkedHashMap.get(i).isChecked()) {
+                return;
+            } else {
+                checkBoxLinkedHashMap.get(9).setEnabled(true);
+                checkBoxLinkedHashMap.get(10).setEnabled(true);
+                checkBoxLinkedHashMap.get(11).setEnabled(true);
+                checkBoxLinkedHashMap.get(12).setEnabled(true);
+            }
+        }
     }
 }
