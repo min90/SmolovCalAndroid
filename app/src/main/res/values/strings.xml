@@ -66,4 +66,12 @@
     <string name="day_2">Day 2</string>
     <string name="day_3">Day 3</string>
     <string name="day_4">Day 4</string>
+    
+    <!-- Full Cycle Screen -->
+    <string name="phases_for_full">Cycle phases</string>
+    <string name="phase_in_cycle">Phase In</string>
+    <string name="base_cycle_cycle">Base Cycle</string>
+    <string name="switching_phase_cycle">Switching Phase</string>
+    <string name="intense_cycle_cycle">Intense Cycle</string>
+    <string name="taper_week_cycle">Taper Week</string>
 </resources>
