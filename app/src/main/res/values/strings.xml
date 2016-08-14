@@ -74,4 +74,22 @@
     <string name="switching_phase_cycle">Switching Phase</string>
     <string name="intense_cycle_cycle">Intense Cycle</string>
     <string name="taper_week_cycle">Taper Week</string>
+
+    <string name="full_week_1">Week 1</string>
+    <string name="full_week_2">Week 2</string>
+    <string name="full_week_3">Week 3</string>
+    <string name="full_week_4">Week 4</string>
+    <string name="full_week_5">Week 5</string>
+    <string name="full_week_6">Week 6</string>
+    <string name="full_week_7">Week 7</string>
+    <string name="full_week_8">Week 8</string>
+    <string name="full_week_9">Week 9</string>
+    <string name="full_week_10">Week 10</string>
+    <string name="full_week_11">Week 11</string>
+    <string name="full_week_12">Week 12</string>
+    <string name="full_week_13">Week 13</string>
+
+    <string name="full_rest">Rest</string>
+    <string name="full_max">Work up to a single max</string>
+    <string name="full_rest_week">Focus on dynamic effort lifting, and try not to go over 50-60% over you new 1RM</string>
 </resources>
